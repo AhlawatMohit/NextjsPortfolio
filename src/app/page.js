@@ -1,14 +1,17 @@
+'use client'
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 
 export default function Home() {
   return (
-    <div className="h-full flex flex-col lg:flex-row px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48">
+    <motion.div className="h-full" initial={{y:"-200vh"}} animate={{y:"0%"}} transition={{duration: 1.1}}>
+    <div className="h-full flex flex-col lg:flex-row px-4 sm:px-8 md:px-12 lg:px-20 xl:px-36">
 
       {/* IMAGE CONTAINER */}
       <div className="h-1/2 lg:h-full lg:w-1/2 relative">
-        <Image className="rounded-br-[30%] rounded-bl-[25%] lg:w-[28rem] lg:h-[30rem] h-[18rem] w-[22rem] ml-10" src="/profile.png" alt="Profile Image" width={100} height={100} />
+        <Image className="rounded-br-[30%] rounded-bl-[25%] lg:w-[28rem] lg:h-[30rem] md:h-[18rem] md:w-[22rem] md:ml-[15rem] xl:ml-[1rem] ml-16" src="/profile.png" alt="Profile Image" width={260} height={200} />
       </div>
 
       {/* TEXT CONTAINER */}
@@ -20,14 +23,15 @@ export default function Home() {
 <p className="text-base md:text-lg">I am looking for a Software Engineering role at a company which develop products with huge impact on people life.</p>
 </div>
 {/* BUTTONS */}
-<div className="flex gap-4">
+<motion.div initial={{x:"100vh"}} animate={{x:"-10%"}} transition={{type:'spring', delay:1, stiffness:200}} className="flex gap-4">
 <Link href="/resume.pdf">
-  <button className="p-3 rounded-lg ring-1 ring-black bg-black text-white">Resume/CV</button>
+  <button className="p-2.5 rounded-lg ring-2 ring-[#9BB0C1] bg-black text-white">Resume/CV</button>
   </Link>
-  <button className="p-3 rounded-lg ring-1 ring-black bg-white text-black">View My Work</button>
-</div>
+  <button className="p-2.5 rounded-lg ring-2 ring-black bg-white text-black">View My Work</button>
+</motion.div>
       </div>
 
     </div>
+    </motion.div>
   );
 }

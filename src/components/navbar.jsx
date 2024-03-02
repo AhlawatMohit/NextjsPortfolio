@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import Navlink from "./navlink";
-
+import { motion } from "framer-motion";
 
 const links = [
     { url: "/", title: "Home" },
@@ -17,6 +17,61 @@ const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
 
 
+    // FRAMER MOTION
+    const topVarients = {
+        closed: {
+            rotate: 0,
+        },
+        opened: {
+            rotate: 45,
+            backgroundColor: "#FFFFFF",
+        }
+    };
+
+    const centerVarients = {
+        closed: {
+            opacity: 1,
+        },
+        opened: {
+            opacity: 0,
+        }
+    };
+
+    const bottomVarients = {
+        closed: {
+            rotate: 0,
+        },
+        opened: {
+            rotate: -45,
+            backgroundColor: "#FFFFFF",
+        }
+    };
+
+    const listVarinets = {
+        closed: {
+            x: "100vw"
+        },
+        opened: {
+            x: 0,
+            transition: {
+                when: "beforeChildren",
+                staggerChildren: 0.3,
+            },
+        }
+    };
+
+    const listItemVariants = {
+        closed: {
+            x: -10,
+            opacity: 0
+        },
+        opened: {
+            x: 0,
+            opacity: 1
+        }
+    }
+
+    // NAVBAR BUTTON
     const handletoggle = () => {
         setIsOpen(!isOpen);
     }
@@ -24,13 +79,13 @@ const Navbar = () => {
 
     return (
         <div className="h-full flex items-center justify-between px-4 sm:px-8 md:px-12 lg:px-20 xl:px-44 text-lg">
-        
-        {/* NAVIGATION LINKS */}
-        <div className="hidden md:flex gap-4 w-1/3">
-            {links.map(link=> (
-<Navlink link={link} key={link.title} />
-            ))}
-        </div>
+
+            {/* NAVIGATION LINKS */}
+            <div className="hidden md:flex gap-4 w-1/3">
+                {links.map(link => (
+                    <Navlink link={link} key={link.title} />
+                ))}
+            </div>
 
             {/* LOGO */}
             <div className="md:hidden lg:flex xl:justify-center xl:w-1/3">
@@ -53,22 +108,36 @@ const Navbar = () => {
 
             {/* RESPONSIVE MENU / HAMBURGER ICONS */}
             <div className="md:hidden">
-                <button className="w-10 h-8 flex flex-col justify-evenly z-50 relative" onClick={handletoggle}>
-                    <div className={`w-10 h-1 ${isOpen ? 'bg-white' : 'bg-black'} rounded`}></div>
-                    <div className={`w-10 h-1 ${isOpen ? 'bg-white' : 'bg-black'} rounded`}></div>
-                    <div className={`w-10 h-1 ${isOpen ? 'bg-white' : 'bg-black'} rounded`}></div>
-                    {/* <div className="w-10 h-1 bg-black rounded"></div> */}
+                <button className="w-10 h-8 flex flex-col justify-between z-50 relative" onClick={handletoggle}>
+                    <motion.div
+                        variants={topVarients}
+                        animate={isOpen ? "opened" : "closed"}
+                        className="w-10 h-1 bg-black rounded origin-left"></motion.div>
+                    <motion.div
+                        variants={centerVarients}
+                        animate={isOpen ? "opened" : "closed"}
+                        className="w-10 h-1 bg-black rounded"></motion.div>
+                    <motion.div
+                        variants={bottomVarients}
+                        animate={isOpen ? "opened" : "closed"}
+                        className="w-10 h-1 bg-black rounded origin-left"></motion.div>
                 </button>
 
 
                 {/* MOBILE MENU LIST */}
                 {isOpen && (
-                    <div className="absolute top-0 left-0 w-screen h-screen bg-black text-white flex flex-col items-center justify-center gap-9 text-2xl">
-                        {links.map(link => (
-                            <Link href={link?.url} key={link?.title}>{link?.title}</Link>
+                    <motion.div
+                        variants={listVarinets}
+                        initial="closed"
+                        animate="opened"
+                        className="absolute top-0 left-0 w-screen h-screen bg-black text-white flex flex-col items-center justify-center gap-9 text-2xl z-40">
+                        {links.map((link) => (
+                            <motion.div variants={listItemVariants} className="" key={link?.title}>
+                            <Link href={link?.url}>{link?.title}</Link>
+                            </motion.div>
                         ))}
 
-                    </div>
+                    </motion.div>
                 )}
             </div>
         </div>
