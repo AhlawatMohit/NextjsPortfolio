@@ -27,7 +27,9 @@ export default function Home() {
             <Link href="/resume.pdf">
               <button className="p-2.5 rounded-lg ring-2 ring-[#9BB0C1] bg-black text-white">Resume/CV</button>
             </Link>
+            <Link href="/portfolio">
             <button className="p-2.5 rounded-lg ring-2 ring-black bg-white text-black">View My Work</button>
+            </Link>
           </motion.div>
         </div>
 
