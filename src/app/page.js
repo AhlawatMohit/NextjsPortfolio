@@ -24,7 +24,7 @@ export default function Home() {
           </div>
           {/* BUTTONS */}
           <motion.div initial={{ x: "100vh" }} animate={{ x: "-10%" }} transition={{ type: 'spring', delay: 1, stiffness: 200 }} className="flex gap-4">
-            <Link href="/resume.pdf">
+            <Link href="/MohitCV.pdf">
               <button className="p-2.5 rounded-lg ring-2 ring-[#9BB0C1] bg-black text-white">Resume/CV</button>
             </Link>
             <Link href="/portfolio">

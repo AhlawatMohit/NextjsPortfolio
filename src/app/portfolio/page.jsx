@@ -6,40 +6,6 @@ import { useRef } from "react";
 import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
 
 
-// const items = [
-//   {
-//     id: 1,
-//     color: "from-red-400 to-blue-400",
-//     title: "Movie/TV show App",
-//     desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui quia recusandae odio.",
-//     img: "/movieM.png",
-//     link: "https://moviex-platform.netlify.app",
-//   },
-//   {
-//     id: 2,
-//     color: "from-red-400 to-blue-400",
-//     title: "DataVisualization App",
-//     desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui quia recusandae odio.",
-//     img: "/movieM.png",
-//     link: "https://moviex-platform.netlify.app",
-//   },
-//   {
-//     id: 3,
-//     color: "from-red-400 to-blue-400",
-//     title: "Login/Register App",
-//     desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui quia recusandae odio.",
-//     img: "/movieM.png",
-//     link: "https://moviex-platform.netlify.app",
-//   }, 
-//   {
-//     id: 4,
-//     color: "from-red-400 to-blue-400",
-//     title: "Ecommerce App",
-//     desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui quia recusandae odio.",
-//     img: "/movieM.png",
-//     link: "https://moviex-platform.netlify.app",
-//   }
-// ];
 
 const PortfolioPage = () => {
 
