@@ -37,7 +37,7 @@ const AboutPage = () => {
  And now I am working Freelancer(upwork) as <span className="text-sky-600 text-lg">Front End</span> or <span className="text-sky-600 text-lg">MERN Stack </span> 
   Developer and basics of <span className="text-sky-600 text-lg">React Native</span> for Mobile App. Visit GitHub for more projects.</p> */}
 
-            <p className="text-lg">I am a dedicated and passionate <span className="text-blue-600 text-lg font-semibold">Front End</span> /
+            <p className="text-lg">I am a dedicated and passionate <span className="text-blue-600 text-lg font-semibold">Front-End</span> /
               <span className="text-blue-600 text-lg font-semibold"> MERN Stack</span> Developer,
               specializing in crafting beautiful and responsive web applications.
               With a Bachelor's degree in Computer Science and Engineering
